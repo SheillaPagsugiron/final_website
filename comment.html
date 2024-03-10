@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap">
+    <link rel="stylesheet" href="comment.css">
+    <title>Response</title>
+</head>
+<body>
+    <div id="successMessage" style="display: none; text-align: center; margin-top: 20px;">
+        <p id="successText">Submitted successfully!</p>
+        <button onclick="redirectToMain()">BACK TO WEBSITE</button>
+        <button onclick="logout()">LOG OUT</button>
+    </div>
+
+    <form id="commentForm" onsubmit="submitForm(event)">      
+        <input name="name" type="text" class="feedback-input" placeholder="Name" />   
+        <input name="email" type="text" class="feedback-input" placeholder="Email" />
+        <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
+        <input type="submit" value="SUBMIT"/>
+    </form>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault(); 
+
+            var email = document.getElementsByName('email')[0].value;
+            var comment = document.getElementsByName('text')[0].value;
+            showSuccessMessage(email);
+
+            sendCommentToServer(email, comment);
+        }
+
+        function showSuccessMessage(email) {
+            document.getElementById('commentForm').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('successText').innerText = "Submitted successfully by " + email + "!";
+        }
+
+        function redirectToMain() {
+            window.location.href = "main.html";
+        }
+
+        function logout() {
+            window.location.href = "login.php";
+        }
+
+        function sendCommentToServer(email, comment) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'send_comment.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    console.log(xhr.responseText);
+                }
+            };
+            var data = 'email=' + encodeURIComponent(email) + '&text=' + encodeURIComponent(comment);
+            xhr.send(data);
+        }
+    </script>
+</body>
+</html>

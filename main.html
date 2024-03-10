@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .comment-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .comment-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            margin-left: 12rem;
+            color: #2c3338;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .comment-btn:hover {
+            background-color: #2980b9; 
+        }
+
+        .comment-btn ion-icon {
+            margin-right: 5px;
+            font-size: 20px;
+        }
+    </style>
+    <title>Personal Website</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <script type="module" src="main.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="container">
+            <div class="parent-link">
+                <a href="#aboutMe" class="social-links">About Me</a>
+                <a href="#expertise" class="social-links">Expertise</a>
+                <a href="#achievement" class="social-links">Achievement</a>
+                <a href="#projects" class="social-links">Projects</a>
+            </div>
+            <div class="icon">
+                <a href="https://facebook.com/nyeillaaaaamae" target="_blank" class="sm-icon">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+                <a href="https://instagram.com/sxeii.p" target="_blank" class="sm-icon">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+                <a href="https://twitter.com/sheyluuh" target="_blank" class="sm-icon">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+                <a href="https://github.com/SheillaPagsugiron" target="_blank" class="sm-icon">
+                    <ion-icon name="logo-github"></ion-icon>
+                </a>
+                <a href="https://linkedin.com/in/sheillapags" target="_blank" class="sm-icon">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+            </div>
+        </nav>
+        <div class="header-container">
+            <div class="hdr-container-left">
+                <h1>Sheilla Mae Pagsugiron</h1>
+                <h3>Bachelor of Science in Information Technology</h3>
+                <p>
+                    Welcome, adventurers of the digital unknown! I'm Sheilla, a code explorer and student of IT at National University-Fairview.
+                </p>
+                <a href="mailto:sheillapagsugiron@gmail.com" class="btn">Contact Me</a>
+            </div>
+            <div class="hdr-container-right">
+                <img src="me.jpg" alt="My Picture">
+
+                <div class="comment-section">
+                    <a href="#" onclick="redirectToLogin()" class="comment-btn">
+                        <ion-icon name="paper-plane"></ion-icon>
+                        Add Response
+                    </a>
+                </div>
+                
+                <script>
+                    function redirectToLogin() {
+                        window.location.href = "login.php";
+                    }
+                </script>                
+                </div>                
+            </div>
+        </div>
+    </header>
+</body>
+</html>

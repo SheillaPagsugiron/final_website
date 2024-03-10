@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- Include Font Awesome CSS -->
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            overflow: hidden; /* Disable scrolling */
+            background-color: #606468; /* Set your background image here */
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        /* Position the image container (needed to position the left and right arrows) */
+        .container {
+            position: relative;
+            max-width: 600px; /* Adjust the max-width as needed */
+            margin: auto;
+        }
+
+        /* Hide the images by default */
+        .mySlides {
+            display: none;
+        }
+
+        /* Add a pointer when hovering over the thumbnail images */
+        .cursor {
+            cursor: pointer;
+        }
+
+        /* Next & previous buttons */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 40%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        /* Container for image text */
+        .caption-container {
+            text-align: center;
+            background-color: #222;
+            padding: 2px 16px;
+            color: white;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Six columns side by side */
+        .column {
+            float: left;
+            width: 16.66%;
+        }
+
+        /* Add a transparency effect for thumbnail images */
+        .demo {
+            opacity: 0.6;
+        }
+
+        .active,
+        .demo:hover {
+            opacity: 1;
+        }
+        /* Return button */
+        .return-btn {
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            font-size: 24px;
+            color: black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h2 style="text-align: center; color: white;">Gallery</h2>
+
+<!-- Return button icon (using Font Awesome) -->
+<div class="return-btn" onclick="goBack()">
+    <i class="fas fa-arrow-left"></i>
+</div>
+
+<div class="container">
+  <div class="mySlides">
+    <div class="numbertext">1 / 12</div>
+    <img src="una.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 12</div>
+    <img src="pangalawa.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 12</div>
+    <img src="pangatlo.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">4 / 12</div>
+    <img src="lima.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">5 / 12</div>
+    <img src="anim.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">6 / 12</div>
+    <img src="pito.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">7 / 12</div>
+    <img src="walo.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">8 / 12</div>
+    <img src="siyam.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">9 / 12</div>
+    <img src="sampu.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">10 / 12</div>
+    <img src="eleven.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">11 / 12</div>
+    <img src="oww.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">12 / 12</div>
+    <img src="wow.jpg" style="width:100%">
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="una.jpg" style="width:100%" onclick="currentSlide(1)" alt="My Photo">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="pangalawa.jpg" style="width:100%" onclick="currentSlide(2)" alt="My Photo">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="pangatlo.jpg" style="width:100%" onclick="currentSlide(3)" alt="My Photo">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="lima.jpg" style="width:100%" onclick="currentSlide(4)" alt="My Photo">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="anim.jpg" style="width:100%" onclick="currentSlide(5)" alt="My Photo">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="pito.jpg" style="width:100%" onclick="currentSlide(6)" alt="My Photo">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="walo.jpg" style="width:100%" onclick="currentSlide(7)" alt="My Photo">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="siyam.jpg" style="width:100%" onclick="currentSlide(8)" alt="My Photo">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="sampu.jpg" style="width:100%" onclick="currentSlide(9)" alt="My Photo">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="eleven.jpg" style="width:100%" onclick="currentSlide(10)" alt="My Photo">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="oww.jpg" style="width:100%" onclick="currentSlide(11)" alt="My Photo">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="wow.jpg" style="width:100%" onclick="currentSlide(12)" alt="My Photo">
+    </div>
+  </div>
+</div>
+
+<script>
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("demo");
+    let captionText = document.getElementById("caption");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    captionText.innerHTML = dots[slideIndex-1].alt;
+  }
+
+  function goBack() {
+    // You can customize this function to handle the return action
+    // For now, it goes back in the browser history
+    window.history.back();
+  }
+</script>
+
+</body>
+</html>

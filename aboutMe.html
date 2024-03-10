@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="aboutMe.css">
+    <title>About Me</title>
+</head>
+<body>
+    <div class="outer-border">
+        <div class="inner-border">
+            <section id="abtme" class="about-me">
+                <div class="about-content">
+                    <div class="about-image">
+                        <img id="myImg" src="prof.jpg" alt="My Photo" style="width:100%;max-width:300px">
+                        <!-- The Modal -->
+                            <div id="myModal" class="modal">
+                                <span class="close">&times;</span>
+                                <img class="modal-content" id="img01">
+                                <div id="caption"></div>
+                            </div>
+                            
+                            <script>
+                            // Get the modal
+                            var modal = document.getElementById("myModal");
+                            
+                            // Get the image and insert it inside the modal - use its "alt" text as a caption
+                            var img = document.getElementById("myImg");
+                            var modalImg = document.getElementById("img01");
+                            var captionText = document.getElementById("caption");
+                            img.onclick = function(){
+                                modal.style.display = "block";
+                                modalImg.src = this.src;
+                                captionText.innerHTML = this.alt;
+                            }
+                            
+                            // Get the <span> element that closes the modal
+                            var span = document.getElementsByClassName("close")[0];
+                            
+                            // When the user clicks on <span> (x), close the modal
+                            span.onclick = function() { 
+                                modal.style.display = "none";
+                            }
+                            </script>
+                    </div>
+                    <div class="about-text">
+                        <h2>Hi, <br> I'm <span class="orange-text">Sheilla Pagsugiron.</span></h2>
+                        <p class="small-font">
+                            A 19-year-old woman driven by a deep passion for designing and programming. I am currently in my second year of pursuing a Bachelor of Science degree in Information Technology at the National University of Fairview.
+                        </p>
+                        <p class="small-font">
+                            I opted for this program because, besides enjoying computers, I find myself fascinated by their ability to address real-world issues, link others, and drive innovation.
+                        </p>
+                        <p class="small-font">
+                            While there are many enticing career paths I could choose from, none remain as strong as the field of UI/UX design. I want to be a designer with a focus on UI/UX who contributes to the creation of intuitive and visually appealing interfaces.
+                        </p>
+
+                        <div class="button-container">
+                            <button onclick="goBack()" class="back-button">
+                                <div class="icon-container">
+                                    <i class="fas fa-door-open"></i>
+                                    <span class="icon-text">Back</span>
+                                </div>
+                            </button>
+                        
+                            <div class="cv-link">
+                                <a href="CV.pdf" download class="btn">
+                                    <div class="icon-container">
+                                        <i class="fas fa-file-download"></i>
+                                        <span class="icon-text">CV</span>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="gallery-link">
+                                <a href="gallery.html" class="btn">
+                                    <div class="icon-container">
+                                        <i class="fas fa-images"></i>
+                                        <span class="icon-text">Gallery</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        <script>
+                            function goBack() {
+                                window.history.back();
+                            }
+                        </script>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

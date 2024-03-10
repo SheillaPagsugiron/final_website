@@ -1,0 +1,95 @@
+<div id="termsModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeTermsModal()">&times;</span>
+        <link rel="stylesheet" href="main.css">
+        <h2><br>Terms of Service</h2>
+	<br>
+        <ul>
+            <li>
+                <strong>Personal Information:</strong>
+                <ul>
+                    <li>This website includes personal information about Sheilla. While Sheilla makes every effort to ensure accuracy, it is not responsible for any mistakes or inaccuracies.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Content Ownership:</strong>
+                <ul>
+                    <li>Every piece of content on this website, which includes but is not limited to text, images, and multimedia, is owned by Sheilla and protected by copyright regulations.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Non-commercial Use:</strong>
+                <ul>
+                    <li>This website is intended for personal, noncommercial use only. You are forbidden to utilize the information provided for commercial purposes with no prior authorization from Sheilla.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>No Collection of Visitor Information:</strong>
+                <ul>
+                    <li>This website refrains from gathering sensitive data from its users. Security of your data is important, and Sheilla is committed to maintaining every bit of data you provide confidential.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Third-Party Links:</strong>
+                <ul>
+                    <li>This website might include links to websites operated by third parties that provide additional information or resources. Sheilla accepts no accountability for the content or actions of these external websites.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Disclaimer:</strong>
+                <ul>
+                    <li>This website's content is intended solely for educational purposes. Sheilla makes no guarantees or representations, express or implied, regarding the information's accuracy, completeness, or suitability.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Limitation of Liability:</strong>
+                <ul>
+                    <li>Sheilla will not be liable for any loss or damage resulting from the use of this website.</li>
+                </ul>
+            </li>
+        </ul>
+        <div>
+            <input type="checkbox" id="agreeCheckbox" onchange="updateAgreeButton()">
+            <label for="agreeCheckbox">I agree to the Terms of Service</label>
+        </div>
+        <button id="agreeButton">Accept</button>
+    </div>
+</div>
+
+<div id="contentWrapper" class="content-wrapper">
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const termsModal = document.getElementById('termsModal');
+        const contentWrapper = document.getElementById('contentWrapper');
+        const agreeButton = document.getElementById('agreeButton');
+        const agreeCheckbox = document.getElementById('agreeCheckbox');
+
+        termsModal.style.display = 'block';
+
+        function closeTermsModal() {
+            termsModal.style.display = 'none';
+            contentWrapper.classList.remove('blur-content');
+            contentWrapper.style.pointerEvents = 'auto';
+        }
+
+        function acceptTerms() {
+            if (agreeCheckbox.checked) {
+                closeTermsModal();
+                window.location.href = 'main.html';
+            } else {
+                alert('Please agree to the Terms of Service before proceeding.');
+            }
+        }
+
+        contentWrapper.classList.add('blur-content');
+
+        agreeButton.disabled = true;
+
+        agreeCheckbox.addEventListener('change', function () {
+            agreeButton.disabled = !this.checked;
+        });
+
+        agreeButton.addEventListener('click', acceptTerms);
+    });
+</script>
